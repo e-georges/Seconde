@@ -1,5 +1,5 @@
 // ==========================================================================
-// RévisSeconde Studio Pro — app.js (Moteur Corrigé & Aligné Examen)
+// RévisSeconde Studio Pro — app.js (Moteur Synchrone à Routage Popups)
 // ==========================================================================
 
 const AppState = {
@@ -13,7 +13,6 @@ const AppState = {
 
 const $ = id => document.getElementById(id);
 
-// Base synchronisée capable d'accepter les mutations et structures de troisieme.json
 const DATA_INITIALE = {
   matieres: [
     {
@@ -126,7 +125,6 @@ function ouvrirTableauDeBordChapitre(matiereId, chapitreId, event) {
   $('chapter-matiere-badge').textContent = mat.label;
   $('pre-quiz-title').textContent = chap.titre;
   
-  // 🎯 CRITÈRE LLM COUNCIL : ALIGNEMENT SANS FAILLE DES CONSEILS SUR LES CRITÈRES DE L'EXAMEN
   if (chap.conseil && chap.conseil.trim() !== "") {
     $('pre-quiz-conseil-text').textContent = chap.conseil;
   } else if (chap.piege && chap.piege.trim() !== "") {
@@ -161,7 +159,6 @@ function genererQuizFlash() {
   $('box-quiz-flash').style.display = 'block';
   $('text-quiz-reponse').style.display = 'none';
   
-  // Récupération des critères réels s'ils existent (depuis troisieme.json), sinon repli intelligent
   let baremeAttendu = "";
   if (chap.exercice_ouvert && chap.exercice_ouvert.criteres) {
     baremeAttendu = chap.exercice_ouvert.criteres.map(crit => `• ${crit}`).join("\n");
