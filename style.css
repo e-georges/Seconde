@@ -1,5 +1,5 @@
 /* =============================================
-   RévisBrevet 2026 — style.css (UI/UX PRO MAX EDITION)
+   RévisBrevet 2026 — style.css (UI/UX PRO MAX FULL EDITION)
    ============================================= */
 :root {
   --color-primary:   #4F46E5;
@@ -100,14 +100,33 @@ body {
   box-sizing: border-box;
   box-shadow: var(--shadow-sm);
 }
-.matieres-grid { display: flex; flex-direction: column; gap: 12px; }
 
-/* ── ACCORDÉON ANIMÉ PRO MAX (Frictionless Mechanical Transitions) ── */
+/* TITRES DES REGROUPEMENTS (CATEGORIES) */
+.category-group-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 24px 0 12px 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.category-group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* ── ACCORDÉON ANIMÉ PRO MAX ── */
 .matiere-card-wrapper {
   padding: 0 !important;
   overflow: hidden;
   transition: var(--transition-smooth);
   border: 1px solid var(--border-color);
+  margin-bottom: 12px;
 }
 .matiere-card-wrapper.is-expanded {
   box-shadow: var(--shadow-md);
@@ -149,19 +168,18 @@ body {
   color: var(--color-primary);
 }
 
-/* Conteneur tiroir avec masquage physique par max-height */
 .matiere-chapters-body {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
   padding: 0 16px;
-  background: #FAFAFC; /* Différenciation de profondeur (Functional Layering) */
+  background: #FAFAFC; /* Functional Layering Depth */
   display: flex;
   flex-direction: column;
 }
 .matiere-chapters-body.is-open {
-  max-height: 500px; /* Assez grand pour contenir les chapitres */
+  max-height: 800px;
   opacity: 1;
   padding-bottom: 16px;
   border-top: 1px solid rgba(226, 232, 240, 0.6);
