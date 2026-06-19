@@ -120,7 +120,7 @@ body {
   background: var(--border-color);
 }
 
-/* ── ACCORDÉON ANIMÉ PRO MAX ── */
+/* ACCORDÉON ANIMÉ PRO MAX */
 .matiere-card-wrapper {
   padding: 0 !important;
   overflow: hidden;
@@ -174,7 +174,7 @@ body {
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
   padding: 0 16px;
-  background: #FAFAFC; /* Functional Layering Depth */
+  background: #FAFAFC;
   display: flex;
   flex-direction: column;
 }
@@ -227,6 +227,44 @@ body {
 }
 .option-btn:active:not(:disabled) { background: var(--bg-app); transform: scale(0.99); }
 
+/* ERGONOMIE SÉLECTION DES NIVEAUX (SUR 2 LIGNES) */
+.quiz-level-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 18px 0;
+}
+.btn-lvl-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 6px;
+  min-height: 68px;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+.btn-lvl-select:active {
+  transform: scale(0.96);
+}
+.btn-lvl-select .lvl-num {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.btn-lvl-select .lvl-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-top: 3px;
+}
+
 .badge { font-size: 0.72rem; font-weight: 700; background: #E0E7FF; color: var(--color-primary); padding: 4px 10px; border-radius: 12px; display: inline-block; }
 
 .mobile-header {
@@ -244,7 +282,7 @@ body {
 
 .hidden { display: none !important; }
 
-/* ── INTERACTIVE FLASHCARDS 3D ENGINE ── */
+/* INTERACTIVE FLASHCARDS 3D ENGINE */
 .flashcard-perspective { perspective: 1200px; width: 100%; height: 340px; }
 .flashcard-card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
 .flashcard-card.flipped { transform: rotateY(180deg); }
@@ -254,6 +292,8 @@ body {
   display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
+  word-break: break-word;
+  line-height: 1.5;
 }
 .flashcard-front { background: white; color: var(--text-primary); }
 .flashcard-back {
@@ -263,6 +303,11 @@ body {
   white-space: pre-line;
   overflow-y: auto;
   border: none;
+}
+
+.btn-next-flashcard {
+  max-width: 240px;
+  margin: 22px auto 0 auto;
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
