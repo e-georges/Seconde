@@ -1,5 +1,5 @@
 // ==========================================================================
-// RévisSeconde Studio Pro — app.js (Moteur Synchrone Complet)
+// RévisSeconde Studio Pro — app.js (Moteur Synchrone Complet + Conseil du jour)
 // ==========================================================================
 
 const AppState = {
@@ -13,7 +13,6 @@ const AppState = {
 
 const $ = id => document.getElementById(id);
 
-// Données types conformes à la classe de Seconde Générale
 const DATA_INITIALE = {
   matieres: [
     {
@@ -25,7 +24,8 @@ const DATA_INITIALE = {
           titre: "Ensembles de nombres & Intervalles",
           theme: "Algèbre",
           cours: "En Seconde, on étudie les structures de nombres : ℕ, ℤ, 𝔻, ℚ et ℝ.\nUn intervalle [a ; b] rassemble l'ensemble des nombres réels x vérifiant la condition a ≤ x ≤ b.",
-          piege: "Vérifie toujours si le crochet est ouvert (valeur exclue) ou fermé (valeur incluse) !"
+          piege: "Vérifie toujours si le crochet est ouvert (valeur exclue) ou fermé (valeur incluse) !",
+          conseil: "Fais un dessin sur une ligne graduée à chaque fois pour ne pas t'emmêler les pinceaux."
         }
       ]
     },
@@ -38,7 +38,8 @@ const DATA_INITIALE = {
           titre: "Le Commentaire de Texte",
           theme: "Méthode",
           cours: "Le commentaire de texte demande de lier constamment le sens d'un extrait littéraire avec ses procédés stylistiques (métaphores, syntaxe, rythmes).",
-          piege: "Le piège éliminatoire consiste à paraphraser le texte sans proposer d'analyse critique."
+          piege: "Le piège éliminatoire consiste à paraphraser le texte sans proposer d'analyse critique.",
+          conseil: "Utilise 3 surligneurs différents au brouillon (un par axe d'analyse)."
         }
       ]
     },
@@ -51,14 +52,14 @@ const DATA_INITIALE = {
           titre: "La quantité de matière (La Mole)",
           theme: "Chimie",
           cours: "La mole (mol) sert à dénombrer les entités chimiques microscopiques. Un échantillon de 1 mole comporte exactement 6,02 x 10^23 entités (Constante d'Avogadro NA).",
-          piege: "Ne mélange jamais la masse totale m (exprimée en grammes) et le nombre de moles n (en mol)."
+          piege: "Ne mélange jamais la masse totale m (exprimée en grammes) et le nombre de moles n (en mol).",
+          conseil: "Apprends par cœur la relation n = m / M et ses unités associées."
         }
       ]
     }
   ]
 };
 
-// Mappage vectoriel propre des icônes de matières
 const SVGMappings = {
   "maths_2de": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
   "francais_2de": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
@@ -66,12 +67,12 @@ const SVGMappings = {
 };
 
 function initialiserApp() {
-  const local = localStorage.getItem('revis_seconde_studio_v3');
+  const local = localStorage.getItem('revis_seconde_studio_v4');
   if (local) {
     AppState.data = JSON.parse(local);
   } else {
     AppState.data = DATA_INITIALE;
-    localStorage.setItem('revis_seconde_studio_v3', JSON.stringify(DATA_INITIALE));
+    localStorage.setItem('revis_seconde_studio_v4', JSON.stringify(DATA_INITIALE));
   }
   construireMenuMatieres();
   configurerOcrEvents();
@@ -151,15 +152,17 @@ function openAddChapterModal(matiereId, chapitreId = null) {
   AppState.targetChapitreIdForEdit = chapitreId;
   
   if(chapitreId) {
-    // Mode Modification : Chargement des inputs
+    // Mode Modification : Chargement des données existantes
     const mat = AppState.data.matieres.find(m => m.id === matiereId);
     const chap = mat.chapitres.find(c => c.id === chapitreId);
     $('input-new-chap-title').value = chap.titre;
+    $('input-new-chap-conseil').value = chap.conseil || "";
     $('area-ingest-text').value = chap.cours || "";
     $('input-ingest-url').value = chap.lien || "";
   } else {
-    // Mode Nouvel Ajout : Remise à zéro
+    // Mode Nouvel Ajout : Vider les formulaires
     $('input-new-chap-title').value = "";
+    $('input-new-chap-conseil').value = "";
     $('area-ingest-text').value = "";
     $('input-ingest-url').value = "";
   }
@@ -198,6 +201,16 @@ function ouvrirTableauDeBordChapitre(matiereId, chapitreId, event) {
   $('pre-quiz-title').textContent = chap.titre;
   $('pre-quiz-cours-text').textContent = chap.cours || "Contenu vide. Cliquez sur Modifier pour l'enrichir.";
   
+  // Remplissage du Conseil du jour (dynamique et évolutif)
+  if(chap.conseil && chap.conseil.trim() !== "") {
+    $('wrapper-conseil').style.display = 'block';
+    $('pre-quiz-conseil-text').textContent = chap.conseil;
+  } else {
+    // Conseil par défaut évolutif basé sur le contenu si rien n'est écrit
+    $('wrapper-conseil').style.display = 'block';
+    $('pre-quiz-conseil-text').textContent = "Pense à relire tes notes régulièrement et à tester tes compétences avec l'onglet Exercices !";
+  }
+
   if(chap.piege) {
     $('wrapper-piege').style.display = 'block';
     $('pre-quiz-piege-text').textContent = chap.piege;
@@ -255,15 +268,14 @@ function configurerOcrEvents() {
       await worker.terminate();
       $('ocr-status-container').style.display = 'none';
       
-      // On injecte le texte lu à la suite du texte existant
       const separateur = $('area-ingest-text').value.trim() !== "" ? "\n\n--- Nouvel ajout photo ---\n" : "";
       $('area-ingest-text').value += separateur + AppState.extractedOcrText;
       
       switchIngestTab('tab-text');
-      alert("✅ Texte extrait ajouté avec succès dans l'onglet Saisie ! Vérifie ou complète-le avant d'enregistrer.");
+      alert("✅ Texte extrait ajouté avec succès !");
     } catch (err) {
       $('ocr-status-container').style.display = 'none';
-      alert("Échec de la lecture optique. Merci d'écrire manuellement.");
+      alert("Échec de la lecture optique.");
     }
   };
 
@@ -271,16 +283,18 @@ function configurerOcrEvents() {
     const titre = $('input-new-chap-title').value.trim();
     if (!titre) return alert("Veuillez donner un titre à ce chapitre.");
 
+    const conseil = $('input-new-chap-conseil').value.trim();
     const texteNotes = $('area-ingest-text').value.trim();
     const lienWeb = $('input-ingest-url').value.trim();
 
     const mat = AppState.data.matieres.find(m => m.id === AppState.targetMatiereIdForAdd);
     
     if(AppState.targetChapitreIdForEdit) {
-      // ÉDITION / ENRICHISSEMENT
+      // ÉDITION ET MUTATION DES DONNÉES EN CONTINU
       const chap = mat.chapitres.find(c => c.id === AppState.targetChapitreIdForEdit);
       if(chap) {
         chap.titre = titre;
+        chap.conseil = conseil;
         chap.cours = texteNotes;
         if(lienWeb) chap.lien = lienWeb;
       }
@@ -292,15 +306,15 @@ function configurerOcrEvents() {
         titre: titre,
         theme: "Perso",
         cours: texteNotes,
-        lien: lienWeb
+        lien: lienWeb,
+        conseil: conseil
       });
     }
 
-    localStorage.setItem('revis_seconde_studio_v3', JSON.stringify(AppState.data));
+    localStorage.setItem('revis_seconde_studio_v4', JSON.stringify(AppState.data));
     construireMenuMatieres();
     closeAddChapterModal();
     
-    // Rafraîchissement direct de la vue du chapitre si on était dedans
     if(AppState.targetChapitreIdForEdit) {
       ouvrirTableauDeBordChapitre(AppState.targetMatiereIdForAdd, AppState.targetChapitreIdForEdit);
     }
