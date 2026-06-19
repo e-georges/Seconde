@@ -26,30 +26,72 @@ const $ = id => document.getElementById(id);
 const DATA_INITIALE = {
   matieres: [
     {
-      id: "maths",
-      label: "Mathématiques",
-      categorie: "🎓 CYCLES BREVET DES COLLÈGES",
-      chapitres: [
-        {
-          id: "fractions",
-          titre: "Calculs avec des fractions",
-          theme: "Nombres",
-          cours: "Pour additionner ou soustraire deux fractions, il faut les mettre au même dénominateur. Pour multiplier, on multiplie les numérateurs entre eux et les dénominateurs entre eux.",
-          piege: "Oublier la priorité opératoire de la multiplication sur l'addition !"
-        }
-      ]
-    },
-    {
       id: "maths_2de",
-      label: "Mathématiques (Lycée)",
-      categorie: "🚀 OBJECTIF SECONDE",
+      label: "Mathématiques",
+      categorie: "🚀 PROGRAMME LYCÉE (2DE)",
       chapitres: [
         {
           id: "intervalles",
           titre: "Ensembles de nombres & Intervalles",
           theme: "Algèbre",
-          cours: "En Seconde, on étudie les ensembles : ℕ (naturels), ℤ (relatifs), 𝔻 (décimaux), ℚ (rationnels) et ℝ (réels).\nUn intervalle [a ; b] rassemble les réels x vérifiant a ≤ x ≤ b.",
-          piege: "Crochet ouvert veut dire valeur strictement exclue !"
+          cours: "En Seconde, on étudie les ensembles de nombres : ℕ, ℤ, 𝔻, ℚ et ℝ.\nUn intervalle [a ; b] rassemble tous les réels x tels que a ≤ x ≤ b.",
+          piege: "Attention au sens des crochets : ouvert = exclu, fermé = inclus !"
+        }
+      ]
+    },
+    {
+      id: "francais_2de",
+      label: "Français",
+      categorie: "🚀 PROGRAMME LYCÉE (2DE)",
+      chapitres: [
+        {
+          id: "commentaire",
+          titre: "Le Commentaire de Texte",
+          theme: "Méthodologie",
+          cours: "Le commentaire repose sur l'analyse linéaire ou thématique d'un texte littéraire. Il faut lier le fond (le sens) et la forme (les figures de style, la syntaxe).",
+          piege: "Le piège absolu est de faire de la paraphrase (raconter l'histoire sans analyser)."
+        }
+      ]
+    },
+    {
+      id: "physique_2de",
+      label: "Physique-Chimie",
+      categorie: "🚀 PROGRAMME LYCÉE (2DE)",
+      chapitres: [
+        {
+          id: "mole",
+          titre: "La quantité de matière (La Mole)",
+          theme: "Chimie",
+          cours: "La mole est l'unité de quantité de matière (mol). Un paquet contient un nombre d'Avogadro d'entités : $N_A = 6,02 \\times 10^{23} \\text{ mol}^{-1}$.",
+          piege: "Ne pas confondre la masse m (en g) et la quantité de matière n (en mol)."
+        }
+      ]
+    },
+    {
+      id: "svt_2de",
+      label: "SVT",
+      categorie: "🚀 PROGRAMME LYCÉE (2DE)",
+      chapitres: [
+        {
+          id: "cellule",
+          titre: "L'organisation du vivant",
+          theme: "Biologie",
+          cours: "Tous les êtres vivants sont constitués de cellules. Une cellule possède une membrane plasmique, un cytoplasme et, pour les eucaryotes, un noyau contenant l'ADN.",
+          piege: "Ne pas confondre les cellules animales (sans paroi) et végétales (avec paroi rigide et chloroplastes)."
+        }
+      ]
+    },
+    {
+      id: "histoire_2de",
+      label: "Histoire-Géographie",
+      categorie: "🚀 PROGRAMME LYCÉE (2DE)",
+      chapitres: [
+        {
+          id: "mediterranee",
+          titre: "La Méditerranée antique & médiévale",
+          theme: "Histoire",
+          cours: "L'étude des empreintes de l'Antiquité (Athènes, Rome) et la confrontation puis les échanges entre les trois grandes civilisations médiévales autour du bassin méditerranéen.",
+          piege: "Réduire les relations médiévales aux seules Croisades en oubliant les intenses échanges commerciaux et culturels."
         }
       ]
     }
