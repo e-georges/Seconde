@@ -110,11 +110,11 @@ body {
 .spinner { width: 22px; height: 22px; border: 3px solid var(--border-color); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Styling du Logo Académique */
+/* Styling du Logo Académique Agrandi */
 .app-logo {
-  height: 70px;
-  width: auto;
+  height: 110px;            /* Augmenté de 70px à 110px pour un effet plus visible */
+  width: auto;              /* Conserve les proportions d'origine de l'image */
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  border-radius: 8px;       /* Léger arrondi pour adoucir les angles */
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05); /* Discret effet de relief */
 }
