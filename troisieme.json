@@ -3,7 +3,7 @@
     "exam": "Diplôme National du Brevet (DNB)",
     "session": "2026",
     "niveau": "Troisième",
-    "version": "2.0-Exhaustive",
+    "version": "3.0-Exhaustive",
     "derniere_maj": "2026-06-19",
     "auteur": "RévisBrevet — Référentiel Officiel Examen"
   },
@@ -12,11 +12,11 @@
       "id": "maths",
       "label": "Mathématiques",
       "emoji": "📐",
-      "nouveaute_2026: "Inclus : Partie Automatismes (20 min sans calculatrice)",
+      "nouveaute_2026": "Partie Automatismes incluse (20 min sans calculatrice)",
       "chapitres": [
         {
           "id": "m1", "titre": "Automatismes & Calcul mental", "theme": "Nombres et Calculs",
-          "fiche": { "icone": "⚡", "titre": "Automatismes", "notion": "Calculer rapidement des proportions, appliquer des pourcentages, manipuler des fractions simples et convertir des unités de mesure.", "exemple": "Prendre 15% de 80 € : (10% = 8) + (5% = 4) = 12 €.", "piege": "Diviser par 0,5 revient à multiplier par 2 !" },
+          "fiche": { "icone": "⚡", "titre": "Automatismes", "notion": "Calculer rapidement des proportions, appliquer des pourcentages, manipuler des fractions simples et effectuer des conversions d'unités.", "exemple": "Prendre 15% de 80 € : 10% vaut 8, 5% vaut 4, donc 8 + 4 = 12 €.", "piege": "Diviser par 0,5 revient exactement à multiplier par 2 !" },
           "quiz": [
             { "enonce": "Exprimer 3/4 sous forme de pourcentage.", "options": ["34%", "0,75%", "75%", "60%"], "bonne_reponse": 2, "explication": "3/4 = 0,75 = 75%." },
             { "enonce": "Convertir 1,5 heure en minutes.", "options": ["1h50min", "90 minutes", "150 minutes", "75 minutes"], "bonne_reponse": 1, "explication": "1 heure = 60 min, et 0,5 heure = 30 min. 60 + 30 = 90 minutes." }
@@ -24,51 +24,51 @@
         },
         {
           "id": "m2", "titre": "Arithmétique & Nombres premiers", "theme": "Nombres et Calculs",
-          "fiche": { "icone": "🔢", "titre": "Arithmétique", "notion": "Un nombre premier n'a que deux diviseurs : 1 et lui-même. Tout nombre composé se décompose de manière unique en produit de facteurs premiers.", "exemple": "Décomposition de 60 : 60 = 2 × 30 = 2 × 2 × 15 = 2² × 3 × 5.", "piege": "Le nombre 1 n'est pas un nombre premier !" },
+          "fiche": { "icone": "🔢", "titre": "Arithmétique", "notion": "Un nombre premier n'a que deux diviseurs distincts : 1 et lui-même. Tout entier supérieur à 1 se décompose de manière unique en produit de facteurs premiers.", "exemple": "Décomposition de 60 : 60 = 2² × 3 × 5.", "piege": "Le nombre 1 n'est pas premier car il n'a qu'un seul diviseur." },
           "quiz": [
-            { "enonce": "Lequel de ces nombres est premier ?", options: ["15", "21", "29", "33"], "bonne_reponse": 2, "explication": "29 n'a pas d'autre diviseur que 1 et lui-même. (15=3x5, 21=3x7, 33=3x11)." }
+            { "enonce": "Lequel de ces nombres est premier ?", "options": ["15", "21", "29", "33"], "bonne_reponse": 2, "explication": "29 n'a pas d'autre diviseur que 1 et lui-même." }
           ]
         },
         {
           "id": "m3", "titre": "Calcul littéral & Équations", "theme": "Algèbre",
-          "fiche": { "icone": "✖️", "titre": "Calcul Littéral", "notion": "Développer (distributivité, identités remarquables) ou factoriser une expression. Résoudre une équation produit nul (A × B = 0 implique A = 0 ou B = 0).", "exemple": "(x + 3)(x - 2) = x² - 2x + 3x - 6 = x² + x - 6.", "piege": "Attention au signe moins devant une parenthèse lors du développement !" },
+          "fiche": { "icone": "✖️", "titre": "Calcul Littéral", "notion": "Développer (distributivité) ou factoriser. Résoudre une équation produit nul : si A × B = 0, alors A = 0 ou B = 0.", "exemple": "Résoudre (x - 3)(2x + 4) = 0 donne x = 3 ou x = -2.", "piege": "Attention au signe négatif devant une parenthèse lors des développements !" },
           "quiz": [
             { "enonce": "Quelles sont les solutions de l'équation (x - 3)(2x + 4) = 0 ?", "options": ["3 et 4", "3 et -2", "-3 et 2", "Aucune solution"], "bonne_reponse": 1, "explication": "x - 3 = 0 => x = 3 ; 2x + 4 = 0 => 2x = -4 => x = -2." }
           ]
         },
         {
           "id": "m4", "titre": "Théorème de Pythagore & Trigonométrie", "theme": "Géométrie",
-          "fiche": { "icone": "📐", "titre": "Pythagore & Trigonométrie", "notion": "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés. Formules trigonométriques : CAH-SOH-TOA.", "exemple": "Si AB=3 et AC=4 dans un triangle rectangle en A alors BC² = 3² + 4² = 9 + 16 = 25 donc BC = 5.", "piege": "N'appliquez jamais ces formules si le triangle n'est pas rectangle !" },
+          "fiche": { "icone": "📐", "titre": "Pythagore & Trigonométrie", "notion": "Dans un triangle rectangle, le carré de l'hypoténuse égale la somme des carrés des côtés de l'angle droit. Rappel trigonométrie : SOH CAH TOA.", "exemple": "Si un triangle rectangle possède des côtés de 3 et 4 cm, l'hypoténuse au carré vaut 3² + 4² = 25, soit 5 cm.", "piege": "N'utilisez jamais ces formules si vous n'avez pas prouvé que le triangle est rectangle !" },
           "quiz": [
             { "enonce": "Quelle formule définit le cosinus d'un angle aigu dans un triangle rectangle ?", "options": ["Opposé / Hypoténuse", "Adjacent / Hypoténuse", "Opposé / Adjacent", "Hypoténuse / Adjacent"], "bonne_reponse": 1, "explication": "Mémo technique CAH : Cosinus = Adjacent / Hypoténuse." }
           ]
         },
         {
           "id": "m5", "titre": "Théorème de Thalès & Homothéties", "theme": "Géométrie",
-          "fiche": { "icone": "🔍", "titre": "Thalès & Agrandissements", "notion": "Le théorème de Thalès permet de calculer des longueurs dans des configurations de droites parallèles. Une homothétie transforme une figure par rapport à un centre en multipliant les longueurs par un rapport k.", "exemple": "Si le rapport d'agrandissement est k=3, les longueurs sont multipliées par 3, les aires par 3²=9.", "piege": "Le théorème nécessite obligatoirement des droites parallèles !" },
+          "fiche": { "icone": "🔍", "titre": "Thalès & Transformations", "notion": "Le théorème de Thalès permet de calculer des longueurs via des rapports d'agrandissement ou de réduction créés par des droites parallèles.", "exemple": "Dans un agrandissement de rapport k=2, les longueurs doublent mais les aires quadruplent (k² = 4).", "piege": "Vérifiez systématiquement l'alignement des points et le parallélisme des droites." },
           "quiz": [
-            { "enonce": "Si une aire de 5 cm² subit un agrandissement de rapport k = 2, quelle est la nouvelle aire ?", "options": ["10 cm²", "20 cm²", "25 cm²", "7 cm²"], "bonne_reponse": 1, "explication": "L'aire est multipliée par k², soit 2² = 4. 5 cm² × 4 = 20 cm²." }
+            { "enonce": "Si une figure d'une aire de 5 cm² subit un agrandissement de rapport k = 2, quelle est sa nouvelle aire ?", "options": ["10 cm²", "20 cm²", "25 cm²", "7 cm²"], "bonne_reponse": 1, "explication": "L'aire est multipliée par k², soit 2² = 4. 5 cm² × 4 = 20 cm²." }
           ]
         },
         {
-          "id": "m6", "titre": "Fonctions linéaires et affines", "theme": "Algèbre",
-          "fiche": { "icone": "📈", "titre": "Fonctions", "notion": "Fonction linéaire : f(x) = ax (droite passant par l'origine). Fonction affine : f(x) = ax + b (b est l'ordonnée à l'origine).", "exemple": "Si f(x) = 3x + 2, alors l'image de 4 est f(4) = 3(4) + 2 = 14.", "piege": "Ne pas confondre 'image' (calculer f(x)) et 'antécédent' (résoudre f(x) = y)." },
+          "id": "m6", "titre": "Fonctions linéaires & affines", "theme": "Algèbre",
+          "fiche": { "icone": "📈", "titre": "Fonctions", "notion": "Linéaire : f(x) = ax (droite passant par l'origine). Affine : f(x) = ax + b (droite coupant l'axe des ordonnées en b).", "exemple": "Si f(x) = 3x + 2, l'image de 4 est f(4) = 3(4) + 2 = 14.", "piege": "Ne confondez pas l'image (trouver y) et l'antécédent (résoudre l'équation pour trouver x)." },
           "quiz": [
-            { "enonce": "Quelle est la forme d'une fonction linéaire ?", "options": ["f(x) = ax + b", "f(x) = ax²", "f(x) = ax", "f(x) = a/x"], "bonne_reponse": 2, "explication": "Une fonction linéaire traduit une situation de proportionnalité et s'écrit f(x) = ax." }
+            { "enonce": "Quelle équation représente une fonction linéaire ?", "options": ["f(x) = ax + b", "f(x) = ax²", "f(x) = ax", "f(x) = a/x"], "bonne_reponse": 2, "explication": "Une fonction linéaire traduit une situation de proportionnalité pure et s'écrit f(x) = ax." }
           ]
         },
         {
           "id": "m7", "titre": "Statistiques & Probabilités", "theme": "Données",
-          "fiche": { "icone": "📊", "titre": "Gestion de données", "notion": "Moyenne (somme des valeurs / effectif total), Médiane (partage la série en deux groupes de même effectif). Probabilité : nombre de cas favorables / nombre de cas totaux (compris entre 0 et 1).", "exemple": "Médiane de [12, 14, 15, 17, 19] est 15.", "piege": "Pensez à ordonner la série de valeurs du plus petit au plus grand avant de chercher la médiane !" },
+          "fiche": { "icone": "📊", "titre": "Gestion de données", "notion": "Moyenne (somme des valeurs / effectif total), Médiane (valeur centrale séparant la série en deux groupes égaux). Probabilité : nombre de cas favorables / effectif total.", "exemple": "La médiane de [10, 12, 15, 18, 20] est 15.", "piege": "Triez toujours les séries par ordre croissant avant de déterminer la médiane !" },
           "quiz": [
-            { "enonce": "On lance un dé équilibré à 6 faces. Quelle est la probabilité d'obtenir un nombre pair ?", "options": ["1/6", "1/2", "3/4", "1/3"], "bonne_reponse": 1, "explication": "Il y a 3 faces paires (2, 4, 6) sur 6 faces au total, soit 3/6 = 1/2." }
+            { "enonce": "Sur un dé équilibré à 6 faces, quelle est la probabilité de faire un nombre impair ?", "options": ["1/6", "1/2", "3/4", "1/3"], "bonne_reponse": 1, "explication": "Il y a 3 nombres impairs (1, 3, 5) sur 6 faces, soit 3/6 = 1/2." }
           ]
         },
         {
           "id": "m8", "titre": "Algorithmique & Scratch", "theme": "Informatique",
-          "fiche": { "icone": "💻", "titre": "Scratch", "notion": "Comprendre les boucles (répéter), les conditions (Si... Alors), et l'orientation (s'orienter à 90 regarde vers la droite, 0 vers le haut). Un grand classique du brevet.", "exemple": "'Avancer de 10' répété 5 fois fait avancer le lutin de 50 unités.", "piege": "Attention au point de départ du lutin (coordonnées x et y) indiqué au début de l'exercice !" },
+          "fiche": { "icone": "💻", "titre": "Algorithmique", "notion": "Analyse de scripts Scratch. Suivre pas à pas les instructions, les boucles répéter et les tests conditionnels.", "exemple": "Une boucle 'Répéter 4 fois : Avancer de 50' déplace le lutin de 200 unités.", "piege": "Repérez attentivement les coordonnées d'initialisation (x, y) et l'orientation initiale (90° = droite, 0° = haut)." },
           "quiz": [
-            { "enonce": "Dans Scratch, si le lutin s'oriente à 90° et avance, dans quelle direction va-t-il ?", "options": ["Vers le haut", "Vers le bas", "Vers la droite", "Vers la gauche"], "bonne_reponse": 2, "explication": "Par défaut dans Scratch, l'orientation à 90 degrés correspond à la droite." }
+            { "enonce": "Dans Scratch, à quelle direction correspond par défaut une orientation à 90° ?", "options": ["Le haut", "Le bas", "La droite", "La gauche"], "bonne_reponse": 2, "explication": "L'orientation à 90 degrés pointe vers la droite de l'écran." }
           ]
         }
       ]
@@ -77,34 +77,34 @@
       "id": "francais",
       "label": "Français",
       "emoji": "✍️",
-      "nouveaute_2026: "Épreuve globale de 3h : Grammaire, Dictée et Rédaction",
+      "nouveaute_2026": "Épreuve globale de 3h (Grammaire, Dictée, Rédaction)",
       "chapitres": [
         {
-          "id": "f1", "titre": "Figures de style", "theme": "Langue",
-          "fiche": { "icone": "📖", "titre": "Figures de style", "notion": "Outils textuels pour enrichir le sens. Comparaison (avec outil comme 'comme'), Métaphore (comparaison directe sans outil), Hyperbole (exagération), Personnification (attribuer des traits humains à un objet).", "exemple": "'La terre était sèche comme de l'os' (Comparaison) / 'Cet homme est un lion' (Métaphore).", "piege": "S'il y a un mot de liaison ('pareil à', 'semblable à', 'comme'), c'est TOUJOURS une comparaison et non une métaphore." },
+          "id": "f1", "titre": "Figures de style indispensables", "theme": "Langue",
+          "fiche": { "icone": "📖", "titre": "Figures de style", "notion": "Comparaison (avec mot-outil 'comme'), Métaphore (comparaison sans mot-outil), Personnification (attribuer un comportement humain à un objet/animal), Hyperbole (exagération).", "exemple": "'La terre était sèche comme de l'os' (Comparaison) ; 'Cette chambre est un four' (Métaphore).", "piege": "S'il y a 'pareil à' ou 'semblable à', c'est une comparaison, pas une métaphore !" },
           "quiz": [
-            { "enonce": "Quelle figure de style est utilisée ici : 'Le vent hurlait sa colère à travers les arbres' ?", "options": ["Une comparaison", "Une métaphore", "Une personnification", "Une allitération"], "bonne_reponse": 2, "explication": "Attribuer des sentiments ou actions humaines (hurler sa colère) au vent est une personnification." }
+            { "enonce": "Quelle figure lit-on ici : 'Le soleil noir de la mélancolie' ?", "options": ["Une comparaison", "Une métaphore / Oxymore", "Une personnification", "Une hyperbole"], "bonne_reponse": 1, "explication": "C'est une métaphore (et un oxymore par l'alliance de mots opposés), car il n'y a pas d'outil de comparaison." }
           ]
         },
         {
-          "id": "f2", "titre": "Classes et fonctions grammaticales", "theme": "Grammaire",
-          "fiche": { "icone": "📝", "titre": "Classes vs Fonctions", "notion": "La classe grammaticale est l'identité fixe d'un mot (nom, verbe, adjectif...). La fonction est son rôle provisoire dans la phrase (sujet, COD, COI, complément circonstanciel).", "exemple": "Dans 'Le chat dort', 'chat' est de classe 'Nom' et de fonction 'Sujet'.", "piege": "Ne confondez pas la nature (ce que le mot EST) et la fonction (ce que le mot FAIT) !" },
+          "id": "f2", "titre": "Classes & Fonctions grammaticales", "theme": "Grammaire",
+          "fiche": { "icone": "📝", "titre": "Analyse grammaticale", "notion": "La classe (ou nature) est l'identité invariable d'un mot (nom, déterminant, pronom). fLa fonction est son rôle syntaxique dans la phrase (sujet, COD, COI, épithète).", "exemple": "Dans 'Le loup mange l'agneau', 'agneau' est de nature Nom et remplit la fonction COD.", "piege": "Ne confondez jamais la nature (ce que le mot est) et sa fonction (ce qu'il fait dans la phrase)." },
           "quiz": [
-            { "enonce": "Dans la phrase 'Il lui donne un livre', quelle est la fonction du pronom 'lui' ?", "options": ["Sujet", "COD", "COI", "Complément du nom"], "bonne_reponse": 2, "explication": "Il donne un livre À QUI ? À lui. C'est un Complément d'Objet Indirect (COI)." }
+            { "enonce": "Dans la phrase 'Je lui parle', quelle est la fonction grammaticale de 'lui' ?", "options": ["Sujet", "COD", "COI", "Attribut du sujet"], "bonne_reponse": 2, "explication": "Je parle À QUI ? À lui. C'est un Complément d'Objet Indirect (COI)." }
           ]
         },
         {
           "id": "f3", "titre": "Valeurs des temps du passé", "theme": "Conjugaison",
-          "fiche": { "icone": "⏳", "titre": "Temps du récit", "notion": "L'imparfait s'utilise pour les actions d'arrière-plan, descriptions, ou habitudes. Le passé simple s'utilise pour les actions de premier plan, soudaines, uniques ou successives.", "exemple": "Il dormait (imparfait, action en cours) quand le téléphone sonna (passé simple, action soudaine).", "piege": "Attention à la terminaison de la 1ère personne du passé simple des verbes du 1er groupe (-ai) à ne pas confondre avec l'imparfait (-ais)." },
+          "fiche": { "icone": "⏳", "titre": "Récit au passé", "notion": "L'imparfait s'emploie pour les descriptions, les actions simultanées ou de second plan (habitudes). Le passé simple s'utilise pour les actions brèves, soudaines et successives au premier plan.", "exemple": "Il marchait (imparfait - action en cours) quand soudain un cri retentit (passé simple - action soudaine).", "piege": "Au passé simple, attention aux terminaisons de la 1ère personne du singulier des verbes du 1er groupe (-ai) pour ne pas confondre avec l'imparfait (-ais)." },
           "quiz": [
-            { "enonce": "Dans un récit au passé, quel temps emploie-t-on pour décrire un paysage ?", "options": ["Le passé composé", "Le passé simple", "L'imparfait", "Le présent"], "bonne_reponse": 2, "explication": "L'imparfait est le temps par excellence de la description et du décor dans un récit au passé." }
+            { "enonce": "Quel temps utilise-t-on pour traduire l'arrière-plan ou une description dans un récit au passé ?", "options": ["Le passé composé", "Le passé simple", "L'imparfait", "Le plus-que-parfait"], "bonne_reponse": 2, "explication": "L'imparfait est le temps de la description et des actions durables en arrière-plan." }
           ]
         },
         {
-          "id": "f4", "titre": "Les types de propositions (Subordonnées)", "theme": "Grammaire",
-          "fiche": { "icone": "🔗", "titre": "Propositions", "notion": "Proposition indépendante (se suffit à elle-même). Proposition principale. Proposition subordonnée relative (complète un nom, introduite par un pronom relatif comme qui, que, dont). Subordonnée conjonctive (complète un verbe, introduite par 'que').", "exemple": "Le livre [que tu m'as offert] est génial (Relative, complète 'livre').", "piege": "Le mot 'que' peut introduire une relative OU une complétive. Regardez s'il y a un nom ou un verbe juste avant !" },
+          "id": "f4", "titre": "Les types de propositions subordonnées", "theme": "Grammaire",
+          "fiche": { "icone": "🔗", "titre": "Syntaxe de la phrase complexe", "notion": "Subordonnée relative : introduite par un pronom relatif (qui, que, dont, où) et complète un nom (antécédent). Subordonnée conjonctive complétive : introduite par 'que' et complète un verbe.", "exemple": "Le livre [que je lis] est captivant (Relative) / Je veux [que tu viennes] (Complétive).", "piege": "Regardez le mot placé juste avant 'que' : un nom implique une relative, un verbe implique une complétive." },
           "quiz": [
-            { "enonce": "Quelle est la nature de la proposition entre crochets : 'Je pense [que tu vas réussir]' ?", "options": ["Subordonnée relative", "Subordonnée conjonctive complétive", "Indépendante coordonnée", "Subordonnée interrogative"], "bonne_reponse": 1, "explication": "'Que' est placé juste après le verbe 'pense'. C'est donc une conjonctive complétive (elle complète le verbe)." }
+            { "enonce": "Quelle est la nature de la proposition entre crochets : 'L'arbre [qui est dans le jardin] est un chêne' ?", "options": ["Subordonnée relative", "Subordonnée conjonctive complétive", "Subordonnée circonstancielle", "Proposition indépendante"], "bonne_reponse": 0, "explication": "Elle est introduite par le pronom relatif 'qui' et complète le nom 'arbre'. C'est une subordonnée relative." }
           ]
         }
       ]
@@ -113,34 +113,34 @@
       "id": "histoire_geo",
       "label": "Histoire-Géo & EMC",
       "emoji": "🌍",
-      "nouveaute_2026: "Inclus l'Enseignement Moral et Civique (EMC) obligatoire",
+      "nouveaute_2026": "Intègre le nouveau barème d'Enseignement Moral et Civique",
       "chapitres": [
         {
-          "id": "h1", "titre": "La Première Guerre mondiale (1914-1918)", "theme": "Histoire",
-          "fiche": { "icone": "⚔️", "titre": "Guerre de tranchées", "notion": "Une guerre totale (mobilisation de toute la société : civils, économie, propagande). Violence de masse subie par les soldats (Poilus à Verdun en 1916) et les civils (génocide des Arméniens en 1915).", "exemple": "La révolution russe de 1917 change la donne européenne, menant à la fin du conflit en novembre 1918.", "piege": "Ne confondez pas l'armistice (11 novembre 1918 - fin des combats) et le traité de paix de Versailles (1919) !" },
+          "id": "h1", "titre": "Première Guerre mondiale & Guerre totale", "theme": "Histoire",
+          "fiche": { "icone": "⚔️", "titre": "1914-1918", "notion": "Une guerre totale impliquant la mobilisation complète des militaires, des civils, de l'économie et de la propagande. Caractérisée par une violence de masse extrême (Tranchées, Verdun 1916, Génocide des Arméniens 1915).", "exemple": "L'armistice est signé le 11 novembre 1918, mettant fin aux combats.", "piege": "L'armistice (1918) arrête les combats, mais c'est le Traité de Versailles (1919) qui signe officiellement la paix." },
           "quiz": [
-            { "enonce": "En quelle année s'est déroulée la terrible bataille de Verdun ?", "options": ["1914", "1915", "1916", "1918"], "bonne_reponse": 2, "explication": "La bataille de Verdun, symbole de la guerre d'usure, s'est tenue de février à décembre 1916." }
+            { "enonce": "En quelle année s'est déroulée la bataille de Verdun, symbole de la guerre des tranchées ?", "options": ["1914", "1915", "1916", "1918"], "bonne_reponse": 2, "explication": "La bataille de Verdun s'est étalée de février à décembre 1916." }
           ]
         },
         {
           "id": "h2", "titre": "Régimes totalitaires & Seconde Guerre mondiale", "theme": "Histoire",
-          "fiche": { "icone": "🎖️", "titre": "Totalitarismes et Guerre 39-45", "notion": "Régimes contrôlant toute la vie publique et privée (Staline en URSS, Hitler en Allemagne). La Seconde Guerre mondiale (1939-1945) est une guerre d'anéantissement idéologique culminant dans la Shoah (extermination des Juifs et Tsiganes).", "exemple": "Auschwitz-Birkenau est le plus grand centre de mise à mort industriel nazi.", "piege": "Ne confondez pas un camp de concentration (travail forcé) et un camp d'extermination (mise à mort immédiate)." },
+          "fiche": { "icone": "🎖️", "titre": "1939-1945", "notion": "Régimes totalitaires (Staline en URSS, Hitler en Allemagne) contrôlant toute la société. La Seconde Guerre mondiale est une guerre d'anéantissement planétaire marquée par la Shoah et le Porajmos (génocide des Juifs et des Tsiganes).", "exemple": "Le centre de mise à mort d'Auschwitz-Birkenau matérialise l'extermination industrielle.", "piege": "Ne confondez pas un camp de concentration (travail forcé) et un camp d'extermination (élimination immédiate)." },
           "quiz": [
-            { "enonce": "Quelle est la date précise du débarquement allié en Normandie ?", "options": ["8 mai 1945", "6 juin 1944", "18 juin 1940", "7 décembre 1941"], "bonne_reponse": 1, "explication": "Le débarquement en Normandie (Opération Overlord) a eu lieu le 6 juin 1944." }
+            { "enonce": "À quelle date s'est déroulé le débarquement allié en Normandie ?", "options": ["18 juin 1940", "6 juin 1944", "8 mai 1945", "11 novembre 1918"], "bonne_reponse": 1, "explication": "Le Débarquement (Opération Overlord) a eu lieu le 6 juin 1944." }
           ]
         },
         {
-          "id": "g1", "titre": "Aires urbaines & Géographie de la France", "theme": "Géographie",
-          "fiche": { "icone": "🏙️", "titre": "Dynamiques territoriales", "notion": "Une aire urbaine est composée d'un pôle urbain (ville-centre + banlieues) et d'une couronne périurbaine. Phénomène de périurbanisation entraînant l'étalement urbain et l'augmentation des mobilités quotidiennes.", "exemple": "Paris concentre une aire urbaine colossale influençant tout le territoire national.", "piege": "La périurbanisation crée des migrations alternantes intenses, augmentant la pollution et les transports individuels." },
+          "id": "g1", "titre": "Aires urbaines & Dynamiques territoriales", "theme": "Géographie",
+          "fiche": { "icone": "🏙️", "titre": "Géographie de la France", "notion": "Une aire urbaine regroupe un pôle urbain (ville-centre + banlieues) et une couronne périurbaine. L'étalement urbain engendre des migrations pendulaires intenses entre lieu de vie et lieu de travail.", "exemple": "L'aire urbaine de Paris domine le réseau national en concentrant les activités de commandement.", "piege": "La périurbanisation grignote les espaces agricoles et augmente la dépendance à l'automobile." },
           "quiz": [
-            { "enonce": "De quoi se compose exactement une aire urbaine en France ?", "options": ["Juste la ville-centre", "Un pôle urbain et une couronne périurbaine", "Les banlieues et les campagnes", "Les grandes régions"], "bonne_reponse": 1, "explication": "C'est la définition officielle de l'INSEE : pôle urbain (centre+banlieue) + couronne périurbaine." }
+            { "enonce": "De quoi se compose précisément une aire urbaine en France selon l'INSEE ?", "options": ["Uniquement du centre-ville", "D'un pôle urbain et d'une couronne périurbaine", "De plusieurs départements", "Uniquement de zones industrielles"], "bonne_reponse": 1, "explication": "Une aire urbaine associe un pôle urbain (ville + banlieues) et sa couronne périurbaine dépendante." }
           ]
         },
         {
-          "id": "e1", "titre": "Valeurs, principes et symboles de la République", "theme": "EMC",
-          "fiche": { "icone": "🇫🇷", "titre": "Fondements républicains", "notion": "Devise : Liberté, Égalité, Fraternité. Principes inscrits dans la Constitution : République indivisible, laïque, démocratique et sociale. Symboles : Drapeau tricolore, Marianne, La Marseillaise, le 14 Juillet.", "exemple": "La laïcité garantit la liberté de conscience et la neutralité de l'État face aux religions.", "piege": "La laïcité n'interdit pas la religion, elle protège le droit de croire ou de ne pas croire librement." },
+          "id": "e1", "titre": "Valeurs, Principes & Symboles de la République", "theme": "EMC",
+          "fiche": { "icone": "🇫🇷", "titre": "Enseignement Moral et Civique", "notion": "Principes fondamentaux de la Constitution : La France est une République indivisible, laïque, démocratique et sociale. Symboles : Drapeau tricolore, Marianne, La Marseillaise, Fête nationale du 14 juillet.", "exemple": "La laïcité assure la neutralité de l'État et garantit la liberté de croyance ou de non-croyance.", "piege": "La laïcité ne supprime pas les religions, elle protège le droit de pratiquer librement dans le cadre des lois." },
           "quiz": [
-            { "enonce": "Lequel de ces mots n'est pas un principe constitutionnel de la République française ?", "options": ["Laïque", "Indivisible", "Monarchique", "Démocratique"], "bonne_reponse": 2, "explication": "La France est une République, elle s'oppose totalement au système monarchique." }
+            { "enonce": "Lequel de ces termes n'est pas un principe officiel de la Constitution française ?", "options": ["Laïque", "Indivisible", "Monarchique", "Démocratique"], "bonne_reponse": 2, "explication": "La France est une démocratie républicaine, excluant tout principe monarchique." }
           ]
         }
       ]
@@ -149,34 +149,34 @@
       "id": "sciences",
       "label": "Sciences (SVT, PC, Techno)",
       "emoji": "🔬",
-      "nouveaute_2026: "Tirage au sort officiel : 2 matières à passer sur les 3",
+      "nouveaute_2026": "Rappel : 2 matières tirées au sort parmi les 3 à l'examen écrit",
       "chapitres": [
         {
-          "id": "s1", "titre": "Physique-Chimie : Organisation de la matière", "theme": "Physique-Chimie",
-          "fiche": { "icone": "⚛️", "titre": "Atomes, Ions et pH", "notion": "Un atome possède un noyau (protons + neutrons) entouré d'électrons négatifs. Un ion est un atome ayant gagné ou perdu des électrons. Le pH mesure l'acidité (0 à 7 = acide, 7 = neutre, 7 à 14 = basique).", "exemple": "L'ion Sodium Na+ a perdu un électron. Une solution de jus de citron a un pH proche de 2 (très acide).", "piege": "Une solution acide contient une majorité d'ions Hydrogène H+, ne pas confondre avec les ions Hydroxyde HO- (basiques)." },
+          "id": "s1", "titre": "Physique-Chimie : Atomes, Ions & pH", "theme": "Physique-Chimie",
+          "fiche": { "icone": "⚛️", "titre": "Matière et Chimie", "notion": "Un atome comprend un noyau (protons, neutrons) et des électrons. Un ion est un atome chargé suite au gain ou à la perte d'électrons. Échelle de pH : 0 à 7 (acide), 7 (neutre), 7 à 14 (basique).", "exemple": "L'ion Cl- a gagné un électron négatif. Une solution acide possède une forte concentration en ions H+.", "piege": "Une solution de pH 14 est très basique, pas du tout acide !" },
           "quiz": [
-            { "enonce": "Une solution aqueuse présente un pH mesuré à 11. Comment la qualifie-t-on ?", "options": ["Acide", "Neutre", "Basique", "Pure"], "bonne_reponse": 2, "explication": "Un pH strictement supérieur à 7 désigne une solution basique." }
+            { "enonce": "Comment qualifie-t-on une solution aqueuse dont le pH est mesuré à 11 ?", "options": ["Acide", "Neutre", "Basique", "Concentrée en H+"], "bonne_reponse": 2, "explication": "Un pH strictement supérieur à 7 désigne une solution basique." }
           ]
         },
         {
-          "id": "s2", "titre": "Physique-Chimie : Forces et Énergie", "theme": "Physique-Chimie",
-          "fiche": { "icone": "🚗", "titre": "Mécanique et Énergie", "notion": "Relation entre Poids et Masse : P = m × g. Énergie mécanique = Énergie cinétique (Ec = 0,5 × m × v²) + Énergie potentielle (Ep). Loi de conservation de l'énergie.", "exemple": "Lorsqu'une voiture freine, son énergie cinétique est convertie en énergie thermique (chaleur des freins).", "piege": "La masse (en kg) ne change jamais dans l'univers, mais le poids (en Newtons) dépend de la gravité du lieu !" },
+          "id": "s2", "titre": "Physique-Chimie : Forces, Poids & Énergie", "theme": "Physique-Chimie",
+          "fiche": { "icone": "🚗", "titre": "Mécanique", "notion": "Relation Poids/Masse : P = m × g (P en Newtons, m en kg). Énergie mécanique : somme de l'énergie cinétique (Ec = 0.5 × m × v²) et potentielle (Ep). Principe de conservation de l'énergie.", "exemple": "Lors d'une chute, l'énergie potentielle diminue tandis que l'énergie cinétique augmente.", "piege": "La masse reste identique partout dans l'univers, seul le poids change selon l'astre !" },
           "quiz": [
-            { "enonce": "Quelle est l'unité officielle de mesure du Poids (P) en physique ?", "options": ["Le Kilogramme (kg)", "Le Joule (J)", "Le Newton (N)", "Le Watt (W)"], "bonne_reponse": 2, "explication": "Le poids est une force d'attraction, il s'exprime donc en Newtons (N)." }
+            { "enonce": "Quelle est l'unité internationale légale du Poids (P) en physique ?", "options": ["Le Kilogramme (kg)", "Le Joule (J)", "Le Newton (N)", "Le Mètre par seconde"], "bonne_reponse": 2, "explication": "Le poids est une force d'attraction gravitationnelle, mesurée en Newtons (N)." }
           ]
         },
         {
-          "id": "s3", "titre": "SVT : Génétique et Hérédité", "theme": "SVT",
-          "fiche": { "icone": "🧬", "titre": "ADN et Chromosomes", "notion": "L'information génétique est localisée dans le noyau des cellules, portée par les chromosomes (23 paires chez l'humain). Les gènes déterminent les caractères héréditaires et peuvent exister sous différentes versions nommées allèles.", "exemple": "La paire 23 détermine le sexe biologique : XX chez la femme, XY chez l'homme.", "piege": "Une anomalie sur le nombre de chromosomes (ex: 3 chromosomes sur la paire 21) cause une trisomie." },
+          "id": "s3", "titre": "SVT : Génétique & Hérédité", "theme": "SVT",
+          "fiche": { "icone": "🧬", "titre": "Biologie cellulaire", "notion": "L'information génétique est contenue sur l'ADN dans le noyau cellulaire, organisé en chromosomes (23 paires chez l'humain). Un gène porte une information précise et se décline en différentes versions appelées allèles.", "exemple": "La paire 23 dicte le sexe : XX pour les femmes, XY pour les hommes.", "piege": "Une anomalie du nombre de chromosomes (ex: 3 chromosomes sur la paire 21) entraîne une trisomie." },
           "quiz": [
-            { "enonce": "Comment appelle-t-on les différentes versions possibles d'un même gène ?", "options": ["Les chromosomes", "Les allèles", "Les cellules", "Les phénotypes"], "bonne_reponse": 1, "explication": "Les allèles sont les variantes d'un gène (ex: allèle œil bleu ou œil marron)." }
+            { "enonce": "Comment qualifie-t-on les différentes versions existantes d'un même gène ?", "options": ["Les chromosomes", "Les allèles", "Les phénotypes", "Les molécules"], "bonne_reponse": 1, "explication": "Les allèles représentent les variations d'un même gène (ex: allèle groupe sanguin A, B ou O)." }
           ]
         },
         {
-          "id": "s4", "titre": "Technologie : Chaîne d'information et d'énergie", "theme": "Technologie",
-          "fiche": { "icone": "🤖", "titre": "Systèmes automatisés", "notion": "Un système technique associe une chaîne d'information (Acquérir via capteurs -> Traiter via microcontrôleur -> Communiquer) et une chaîne d'énergie (Alimenter -> Distribuer -> Convertir via actionneurs -> Transmettre).", "exemple": "Un capteur de présence transmet l'info à une carte Arduino qui ordonne à un moteur de lever une barrière.", "piege": "Ne confondez pas un capteur (reçoit l'information extérieure) et un actionneur (fait une action physique comme tourner ou éclairer) !" },
+          "id": "s4", "titre": "Technologie : Chaînes d'information & d'énergie", "theme": "Technologie",
+          "fiche": { "icone": "🤖", "titre": "Systèmes automatisés", "notion": "Chaîne d'information : Acquérir (Capteurs) -> Traiter (Microcontrôleur) -> Communiquer. Chaîne d'énergie : Alimenter -> Distribuer -> Convertir (Actionneurs) -> Transmettre.", "exemple": "Une photorésistance capte la lumière (Capteur) et un moteur enroule un store électrique (Actionneur).", "piege": "Ne confondez pas un capteur (mesure une grandeur physique) et un actionneur (produit une action concrète)." },
           "quiz": [
-            { "enonce": "Dans un volet roulant automatique, quel élément joue le rôle d'actionneur pour lever le tablier ?", "options": ["Le bouton poussoir", "Le moteur électrique", "Le capteur de soleil", "Les fils électriques"], "bonne_reponse": 1, "explication": "Le moteur convertit l'énergie électrique en mouvement mécanique : c'est un actionneur." }
+            { "enonce": "Dans une barrière automatique de parking, quel élément convertit l'énergie pour lever la lisse ?", "options": ["La cellule infrarouge", "Le moteur électrique", "La télécommande", "La batterie"], "bonne_reponse": 1, "explication": "Le moteur convertit l'énergie électrique en mouvement mécanique : c'est l'actionneur du système." }
           ]
         }
       ]
