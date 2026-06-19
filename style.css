@@ -1,0 +1,201 @@
+/* ── COMPLÉMENTS CLAYMORPHISM & BOTTOM SHEET ───────────────── */
+:root {
+  --clay-bg: rgba(255, 255, 255, 0.85);
+  --clay-border: rgba(255, 255, 255, 0.6);
+  --shadow-clay: inset 0 4px 12px rgba(255, 255, 255, 0.8), 0 10px 25px rgba(124, 58, 237, 0.12);
+}
+
+body.dark-bg {
+  --bg: #151124;
+  --card-bg: rgba(30, 25, 50, 0.85);
+  --text: #F1EDF9;
+  --muted: #A39BB0;
+  --clay-border: rgba(255, 255, 255, 0.1);
+  --shadow-clay: inset 0 2px 6px rgba(255, 255, 255, 0.1), 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* PANNEAU MOBILE SYSTEM (BOTTOM-SHEET) */
+.bottom-sheet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.sheet-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 21, 44, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sheet-content {
+  position: relative;
+  width: 100%;
+  max-height: 82vh;
+  background: var(--card-bg);
+  border-radius: 32px 32px 0 0;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-clay);
+  border-top: 2px solid var(--clay-border);
+  overflow-y: auto;
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2100;
+}
+
+.bottom-sheet.hidden .sheet-content {
+  transform: translateY(100%);
+}
+
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sheet-drag-handle {
+  width: 48px;
+  height: 6px;
+  background: var(--muted);
+  opacity: 0.4;
+  border-radius: 4px;
+  margin: 0 auto;
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 24px);
+}
+
+.sheet-close-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* STRUCTURE DE LA FICHE INTERNE */
+.fiche-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fiche-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fiche-icon {
+  font-size: 2rem;
+}
+
+.fiche-divider {
+  border: none;
+  height: 2px;
+  background: var(--muted);
+  opacity: 0.15;
+  margin: 4px 0;
+}
+
+.fiche-section {
+  padding: 14px;
+  border-radius: 18px;
+  box-shadow: var(--shadow-clay);
+  border: 1px solid var(--clay-border);
+}
+
+.fiche-section h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fiche-section.notion { background: rgba(124, 58, 237, 0.05); }
+.fiche-section.exemple { background: rgba(46, 196, 182, 0.05); }
+.fiche-block-code {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-top: 6px;
+}
+
+/* Encart Rouge Alerte Claymorphism pour le piège */
+.fiche-section.piege {
+  background: rgba(232, 72, 85, 0.07);
+  border: 1.5px solid rgba(232, 72, 85, 0.2);
+}
+.fiche-section.piege h3 { color: #E84855; }
+
+/* BOUTON FLOTTANT ET RACCOURCIS FICHES */
+.btn-sheet-shortcut {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+.btn-fiche-open {
+  width: 100%;
+  margin-top: 10px;
+  background: var(--clay-bg);
+  color: var(--text);
+  border: 1px solid var(--clay-border);
+  box-shadow: var(--shadow-clay);
+  border-radius: 14px;
+  padding: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-quiz-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.clay-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--clay-border);
+  background: var(--clay-bg);
+  border-radius: 14px;
+  color: var(--text);
+  font-family: inherit;
+  box-sizing: border-box;
+}

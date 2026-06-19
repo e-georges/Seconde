@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "exam": "Diplôme National du Brevet (DNB)",
+    "session": "2026",
+    "niveau": "Troisième",
+    "version": "1.1"
+  },
+  "dates_epreuves": {
+    "francais": { "date": "2026-06-26", "label": "Français écrit" },
+    "histoire_geo": { "date": "2026-06-29", "label": "Histoire-Géographie" },
+    "sciences": { "date": "2026-06-29", "label": "Sciences (SVT/PC)" },
+    "maths": { "date": "2026-06-30", "label": "Mathématiques" }
+  },
+  "matieres": [
+    {
+      "id": "maths",
+      "label": "Mathématiques",
+      "emoji": "📐",
+      "couleur": "#3D5A99",
+      "nouveaute_2026": "20 min d'automatismes sans calculatrice",
+      "chapitres": [
+        {
+          "id": "maths_01",
+          "titre": "Automatismes et calcul mental",
+          "theme": "Nombres et calculs",
+          "fiche": {
+            "icone": "⚡",
+            "titre": "Calcul mental & Réflexes",
+            "notion": "Les automatismes demandent de calculer vite et sans poser d'opérations : maîtriser les pourcentages simples, les fractions d'une quantité et le passage d'une unité à une autre.",
+            "exemple": "Calculer 15% de 80 : 10% vaut 8, 5% vaut 4, donc 8 + 4 = 12.",
+            "piege": "Ne pas confondre diviser par 0,5 (qui revient à multiplier par 2) avec diviser en deux !"
+          },
+          "quiz": [
+            { "enonce": "Calculer 25% de 160 €.", "options": ["A) 40 €", "B) 80 €", "C) 20 €", "D) 120 €"], "bonne_reponse": 0, "explication": "25% équivaut à diviser par 4. 160 / 4 = 40 €." }
+          ]
+        },
+        {
+          "id": "maths_02",
+          "titre": "Arithmétique et PGCD",
+          "theme": "Nombres et calculs",
+          "fiche": {
+            "icone": "🔢",
+            "titre": "Divisibilité & Nombres Premiers",
+            "notion": "Un nombre premier n'est divisible que par 1 et par lui-même. Le PGCD est le plus grand commun diviseur de deux entiers, utile pour rendre une fraction irréductible.",
+            "exemple": "Décomposer 60 en facteurs premiers : 60 = 2 × 30 = 2 × 2 × 15 = 2² × 3 × 5.",
+            "piege": "Le nombre 1 n'est pas un nombre premier car il n'a qu'un seul diviseur."
+          },
+          "quiz": [
+            { "enonce": "Lequel de ces nombres est premier ?", "options": ["A) 15", "B) 21", "C) 19", "D) 27"], "bonne_reponse": 2, "explication": "19 n'a aucun autre diviseur que 1 et lui-même." }
+          ]
+        },
+        {
+          "id": "maths_03",
+          "titre": "Transformations géométriques",
+          "theme": "Espace et géométrie",
+          "fiche": {
+            "icone": "🌀",
+            "titre": "Symétries, Rotations et Homothéties",
+            "notion": "L'homothétie de rapport k agrandit (si k > 1 ou k < -1) ou réduit une figure. Si le rapport est négatif, la figure pivote à l'opposé du centre.",
+            "exemple": "Dans une homothétie de rapport 3, les longueurs sont multipliées par 3 et les aires par 3² = 9.",
+            "piege": "Attention : une homothétie ne conserve pas les longueurs, contrairement aux translations et rotations."
+          },
+          "quiz": [
+            { "enonce": "Si le rapport d'une homothétie vaut -2, les aires sont multipliées par :", "options": ["A) -2", "B) 4", "C) -4", "D) 2"], "bonne_reponse": 1, "explication": "Le rapport d'aire est k². (-2)² = 4. Une aire est toujours positive !" }
+          ]
+        },
+        {
+          "id": "maths_04",
+          "titre": "Algorithmique avec Scratch",
+          "theme": "Informatique",
+          "fiche": {
+            "icone": "🤖",
+            "titre": "Structures et Variables Scratch",
+            "notion": "Comprendre les blocs de répétition (boucles), les instructions conditionnelles (Si... Alors) et la modification de variables pas à pas.",
+            "exemple": "Mettre X à 5. Répéter 3 fois : Ajouter 2 à X. À la fin, X vaut 5 + (3 × 2) = 11.",
+            "piege": "Attention à distinguer 'Ajouter 10 à X' (addition) et 'Mettre X à 10' (écrasement de la valeur)."
+          },
+          "quiz": [
+            { "enonce": "Mettre A à 2. Si A > 1 Alors Mettre A à A*3. Que vaut A ?", "options": ["A) 2", "B) 5", "C) 6", "D) 1"], "bonne_reponse": 2, "explication": "La condition 2 > 1 est vraie, donc A prend la valeur 2 × 3 = 6." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "francais",
+      "label": "Français",
+      "emoji": "✍️",
+      "couleur": "#2EC4B6",
+      "duree_epreuve": "3h",
+      "chapitres": [
+        {
+          "id": "fr_01",
+          "titre": "Objets d'étude et genres littéraires",
+          "theme": "Littérature",
+          "fiche": {
+            "icone": "📖",
+            "titre": "Genres, Registres et Figures de style",
+            "notion": "Savoir identifier le genre (roman, poésie, théâtre, autobiographie) et les registres textuels (lyrique, tragique, satirique, ironique) pour l'analyse de texte du DNB.",
+            "exemple": "La métaphore compare deux éléments directement, sans outil de comparaison ('Ses yeux sont des étoiles').",
+            "piege": "Ne confondez pas auteur (la personne réelle), narrateur (celui qui dit 'je' dans le récit) et personnage."
+          },
+          "quiz": [
+            { "enonce": "Quelle figure de style est employée dans : 'Ce voyage est un long calvaire' ?", "options": ["A) Une comparaison", "B) Une métaphore", "C) Une personnification", "D) Une hyperbole"], "bonne_reponse": 1, "explication": "C'est une métaphore car l'outil de comparaison ('comme') est absent." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "histoire_geo",
+      "label": "Histoire-Géographie",
+      "emoji": "🌍",
+      "couleur": "#F4A261",
+      "duree_epreuve": "2h",
+      "chapitres": [
+        {
+          "id": "hg_01",
+          "titre": "La Première Guerre mondiale (1914-1918)",
+          "theme": "Histoire",
+          "fiche": {
+            "icone": "🪖",
+            "titre": "Guerre totale et violence de masse",
+            "notion": "La Grande Guerre est une guerre totale impliquant civils et militaires. Faits majeurs : tranchées, bataille de Verdun (1916) et le génocide des Arméniens (1915).",
+            "exemple": "Violence de masse : conditions extrêmes des Poilus au front et mobilisation économique de l'arrière.",
+            "piege": "Ne confondez pas la date de l'armistice (11 novembre 1918) avec celle du traité de Versailles (28 juin 1919)."
+          },
+          "quiz": [
+            { "enonce": "En quelle année a eu lieu la terrible bataille de Verdun ?", "options": ["A) 1914", "B) 1915", "C) 1916", "D) 1918"], "bonne_reponse": 2, "explication": "La bataille de Verdun s'est déroulée de février à décembre 1916." }
+          ]
+        },
+        {
+          "id": "hg_02",
+          "titre": "Effondrement et refondation républicaine (1940-1946)",
+          "theme": "Histoire",
+          "fiche": {
+            "icone": "🏛️",
+            "titre": "Vichy, Résistance et CNR",
+            "notion": "Après la défaite de 1940, la France est coupée en deux : le régime de Vichy collabore avec l'Allemagne nazie tandis que la Résistance (intérieure et extérieure avec de Gaulle) lutte pour refonder la République.",
+            "exemple": "Le Conseil National de la Résistance (CNR) rédige un programme en 1944 qui crée la Sécurité sociale.",
+            "piege": "Ne confondez pas l'appel du 18 juin 1940 de De Gaulle avec l'armistice demandé par Pétain le 17 juin 1940."
+          },
+          "quiz": [
+            { "enonce": "Qui dirigeait l'État français collaborateur basé à Vichy ?", "options": ["A) Charles de Gaulle", "B) Philippe Pétain", "C) Jean Moulin", "D) Pierre Mendès France"], "bonne_reponse": 1, "explication": "Le maréchal Pétain a instauré le régime autoritaire et collaborateur de Vichy." }
+          ]
+        }
+      ]
+    }
+  ]
+}
