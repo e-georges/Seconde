@@ -99,8 +99,11 @@ const DATA_INITIALE = {
 };
 
 const SVGMappings = {
-  "maths": `<svg viewBox="0 0 24 24"><path d="M22 10v4h-6v6h-4v-6H6v-4h6V4h4v6h6z"/></svg>`,
-  "maths_2de": `<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`
+  "maths_2de": `<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+  "francais_2de": `<svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+  "physique_2de": `<svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-15zM10.5 4.5C9.67 4.5 9 5.17 9 6s.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-3z"/></svg>`,
+  "svt_2de": `<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 1.5.38 2.9 1.03 4.14l-1.01 3.03 3.12-1.02A8.956 8.956 0 0 0 12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9z"/></svg>`,
+  "histoire_2de": `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/></svg>`
 };
 
 // Algorithme Anti-Répétition
