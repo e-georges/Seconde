@@ -167,7 +167,7 @@ async function initialiserApp() {
   configurerFlashcardsMenu();
 }
 
-// ── ACCORDÉON TACTILE ET REGROUPEMENT PAR CATÉGORIES PRO MAX ──
+// ACCORDÉON TACTILE ET REGROUPEMENT PAR CATÉGORIES
 function construireMenuMatieres() {
   const container = $('matieres-container');
   if (!container) return;
@@ -225,7 +225,6 @@ function construireMenuMatieres() {
       header.onclick = () => {
         const estOuvert = bodyContent.classList.contains('is-open');
         
-        // Effondrement global mécanique (Anti-pattern check)
         document.querySelectorAll('.matiere-chapters-body').forEach(b => b.classList.remove('is-open'));
         document.querySelectorAll('.arrow-indicator').forEach(a => a.classList.remove('rotated'));
         document.querySelectorAll('.matiere-card-wrapper').forEach(w => w.classList.remove('is-expanded'));
