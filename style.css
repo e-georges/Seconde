@@ -1,6 +1,3 @@
-/* ==========================================================================
-   RévisSeconde Studio Pro — style.css
-   ========================================================================== */
 :root {
   --color-primary:   #4F46E5;
   --color-success:   #10B981;
@@ -33,22 +30,16 @@ body {
   padding: 24px 20px 90px 20px;
 }
 
-.mobile-header { margin-bottom: 24px; }
-
-/* ENSEMBLE DES ACCORDÉONS SOFT UI */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius); padding: 16px; margin-bottom: 14px;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);
 }
 
-/* LE STYLE DU PAVÉ DU CONSEIL DU JOUR */
 .card-conseil {
   background: #FEF3C7;
   border: 1px solid #FCD34D;
   border-radius: var(--radius); padding: 14px; margin-bottom: 16px;
-  box-shadow: 0 2px 4px rgba(217, 119, 6, 0.04);
 }
 
 .matiere-trigger-header {
@@ -60,8 +51,6 @@ body {
   background: #EEF2FF; color: var(--color-primary);
   display: flex; align-items: center; justify-content: center;
 }
-
-.header-icon-box svg { width: 20px; height: 20px; }
 
 .arrow-indicator { width: 18px; height: 18px; transition: transform 0.25s ease; fill: none; stroke: currentColor; }
 .arrow-indicator.rotated { transform: rotate(180deg); }
@@ -75,9 +64,7 @@ body {
   padding: 12px; background: #F8FAFC; border-radius: 10px;
   display: flex; justify-content: space-between; align-items: center;
   font-size: 0.88rem; font-weight: 600; color: var(--text-primary); cursor: pointer;
-  transition: background 0.2s ease;
 }
-.chapitre-row-item:hover { background: #EEF2FF; }
 
 .badge-theme { font-size: 0.68rem; background: #EEF2FF; color: var(--color-primary); padding: 4px 8px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
 
@@ -87,15 +74,15 @@ body {
   font-size: 0.8rem; border-radius: 10px; margin-top: 12px; cursor: pointer;
 }
 
-/* SYSTEME GENERAL DES POPUPS/MODALS FLUTES */
+/* FIX CRITIQUE COUNCILS : display: none initial par défaut pour éviter le recouvrement total */
 .modal-backdrop {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px;
+  z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px;
 }
 
-.modal-window { background: white; border-radius: 20px; width: 100%; max-width: 360px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-direction: column; max-height: 80vh; }
+.modal-window { background: white; border-radius: 20px; width: 100%; max-width: 360px; overflow: hidden; display: flex; flex-direction: column; max-height: 80vh; }
 .modal-header-title { padding: 16px 16px 12px 16px; font-weight: 800; font-size: 1.1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); }
 .modal-scroll-content { padding: 16px; overflow-y: auto; flex: 1; }
 .modal-footer-actions { padding: 12px 16px 16px 16px; border-top: 1px solid var(--border-color); display: flex; gap: 10px; }
@@ -106,17 +93,13 @@ body {
 .tab-content { padding: 16px; }
 
 .input-field { width: 100%; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px; font-family: inherit; box-sizing: border-box; margin-bottom: 12px; outline: none; font-size: 0.9rem; }
-.input-field:focus { border-color: var(--color-primary); }
 
-.file-dropzone { border: 2px dashed var(--border-color); border-radius: 12px; padding: 24px 12px; text-align: center; background: #F8FAFC; cursor: pointer; }
-
-/* BOUTONS ET NAVIGATION GLOBALE */
-.btn-primary { width: 100%; min-height: 44px; background: var(--color-primary); color: white; font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-size: 0.9rem; }
-.btn-success { width: 100%; min-height: 44px; background: var(--color-success); color: white; font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-size: 0.9rem; }
-.btn-secondary { width: 100%; min-height: 44px; background: #F1F5F9; color: var(--text-secondary); font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-size: 0.9rem; }
+.btn-primary { width: 100%; min-height: 44px; background: var(--color-primary); color: white; font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; }
+.btn-success { width: 100%; min-height: 44px; background: var(--color-success); color: white; font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; }
+.btn-secondary { width: 100%; min-height: 44px; background: #F1F5F9; color: var(--text-secondary); font-family: inherit; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; }
 
 .bottom-nav { position: absolute; bottom: 0; left: 0; right: 0; height: 64px; background: white; border-top: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; }
-.nav-item { background: none; border: none; color: var(--color-primary); font-family: inherit; font-weight: 700; font-size: 0.88rem; cursor: pointer; }
+.nav-item { background: none; border: none; color: var(--color-primary); font-family: inherit; font-weight: 700; cursor: pointer; }
 
 .spinner { width: 22px; height: 22px; border: 3px solid var(--border-color); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
