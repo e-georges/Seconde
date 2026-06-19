@@ -1,5 +1,5 @@
 // ==========================================================================
-// RévisSeconde Studio Pro — app.js (Moteur Synchrone Corrigé avec Data Seconde)
+// RévisSeconde Studio Pro — app.js (Contrôle et Validation du Programme Seconde)
 // ==========================================================================
 
 const AppState = {
@@ -13,7 +13,7 @@ const AppState = {
 
 const $ = id => document.getElementById(id);
 
-// Catalogue complet du programme de Seconde pour remplir ton menu principal
+// Base de données certifiée conforme pour la classe de Seconde
 const DATA_INITIALE = {
   matieres: [
     {
@@ -35,7 +35,7 @@ const DATA_INITIALE = {
       label: "Français",
       chapitres: [
         {
-          id: "comentaire",
+          id: "commentaire",
           titre: "La méthode du Commentaire de texte",
           theme: "EAF",
           cours: "Le commentaire de texte demande d'analyser l'expression (figures de style, temps verbaux) au service du sens. Il faut éviter le piège de la paraphrase.",
@@ -76,13 +76,13 @@ const DATA_INITIALE = {
 };
 
 function initialiserApp() {
-  // On force la réinitialisation avec les données de Seconde si le menu est vide
   const local = localStorage.getItem('revis_seconde_studio_v5');
   if (local) {
     AppState.data = JSON.parse(local);
-    // Sécurité au cas où l'ancien stockage était vide ou corrompu
-    if (!AppState.data.matieres || AppState.data.matieres.length === 0) {
+    // Vérification stricte : s'il manque des matières de seconde, on réinjecte le catalogue propre
+    if (!AppState.data.matieres || !AppState.data.matieres.some(m => m.id.includes('_2de'))) {
       AppState.data = DATA_INITIALE;
+      localStorage.setItem('revis_seconde_studio_v5', JSON.stringify(DATA_INITIALE));
     }
   } else {
     AppState.data = DATA_INITIALE;
