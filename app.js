@@ -1,5 +1,5 @@
 // ============================================================
-// RévisBrevet 2026 — app.js (UI/UX PRO MAX EDITION)
+// RévisBrevet 2026 — app.js (UI/UX PRO MAX FULL EDITION)
 // ============================================================
 
 const AppState = {
@@ -19,12 +19,14 @@ const AppState = {
 
 const $ = id => document.getElementById(id);
 
+// Données de secours si troisieme.json n'est pas accessible
 const DATA_SECOURS = {
   matieres: [
     {
       id: "maths",
       label: "Mathématiques",
       emoji: "📐",
+      categorie: "Sciences",
       chapitres: [
         {
           id: "fractions",
@@ -39,6 +41,7 @@ const DATA_SECOURS = {
       id: "francais",
       label: "Français",
       emoji: "✍️",
+      categorie: "Lettres & Humain",
       chapitres: [
         {
           id: "figures_style",
@@ -164,7 +167,7 @@ async function initialiserApp() {
   configurerFlashcardsMenu();
 }
 
-// ── ACCORDÉON TACTILE ANIMÉ PRO MAX ──
+// ── ACCORDÉON TACTILE ET REGROUPEMENT PAR CATÉGORIES PRO MAX ──
 function construireMenuMatieres() {
   const container = $('matieres-container');
   if (!container) return;
@@ -172,57 +175,73 @@ function construireMenuMatieres() {
   
   const dataToUse = (AppState.data && AppState.data.matieres) ? AppState.data : DATA_SECOURS;
 
+  // 1. Dispatch des données dans un dictionnaire de catégories
+  const groupes = {};
   dataToUse.matieres.forEach(m => {
-    if (!m.chapitres) return;
-    
-    const card = document.createElement('div');
-    card.className = 'card matiere-card-wrapper';
-    
-    const header = document.createElement('div');
-    header.className = 'matiere-trigger-header';
-    header.innerHTML = `
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span style="font-size:1.4rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">${m.emoji || '📚'}</span>
-        <h3 style="margin:0; font-size:1rem; font-weight:700; color:var(--text-primary); letter-spacing:-0.01em;">${m.label || m.id}</h3>
-      </div>
-      <span class="arrow-indicator">▼</span>
-    `;
-    
-    const bodyContent = document.createElement('div');
-    bodyContent.className = 'matiere-chapters-body';
-    
-    m.chapitres.forEach(c => {
-      const row = document.createElement('div');
-      row.className = 'chapitre-item';
-      row.style.cssText = "padding:14px 12px; margin-top:10px; background:var(--bg-card); border-radius:12px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);";
-      row.onclick = (e) => ouvrirPreQuiz(m.id, c.id, e);
-      row.innerHTML = `
-        <span style="font-weight:600; font-size:.85rem; padding-right:12px; text-align:left; color:var(--text-primary); line-height:1.3;">${c.titre}</span>
-        <span style="font-size:.68rem; font-weight:700; color:var(--text-secondary); background:var(--bg-app); padding:4px 8px; border-radius:8px; white-space:nowrap; border:1px solid var(--border-color); text-transform:uppercase; letter-spacing:0.02em;">${c.theme || 'DNB'}</span>
-      `;
-      bodyContent.appendChild(row);
-    });
-
-    header.onclick = () => {
-      const estOuvert = bodyContent.classList.contains('is-open');
-      
-      // Ferme tous les autres tiroirs ouverts avec effondrement CSS
-      document.querySelectorAll('.matiere-chapters-body').forEach(b => b.classList.remove('is-open'));
-      document.querySelectorAll('.arrow-indicator').forEach(a => a.classList.remove('rotated'));
-      document.querySelectorAll('.matiere-card-wrapper').forEach(w => w.classList.remove('is-expanded'));
-      
-      // Alterne l'état de la matière ciblée
-      if (!estOuvert) {
-        bodyContent.classList.add('is-open');
-        card.classList.add('is-expanded');
-        header.querySelector('.arrow-indicator').classList.add('rotated');
-      }
-    };
-
-    card.appendChild(header);
-    card.appendChild(bodyContent);
-    container.appendChild(card);
+    const cat = m.categorie || "Général";
+    if (!groupes[cat]) groupes[cat] = [];
+    groupes[cat].push(m);
   });
+
+  // 2. Rendu physique compartimenté par catégorie
+  for (const [nomCategorie, listeMatieres] of Object.entries(groupes)) {
+    
+    const titreCategorie = document.createElement('div');
+    titreCategorie.className = 'category-group-title';
+    titreCategorie.textContent = nomCategorie;
+    container.appendChild(titreCategorie);
+
+    listeMatieres.forEach(m => {
+      if (!m.chapitres) return;
+      
+      const card = document.createElement('div');
+      card.className = 'card matiere-card-wrapper';
+      
+      const header = document.createElement('div');
+      header.className = 'matiere-trigger-header';
+      header.innerHTML = `
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.4rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">${m.emoji || '📚'}</span>
+          <h3 style="margin:0; font-size:1rem; font-weight:700; color:var(--text-primary); letter-spacing:-0.01em;">${m.label || m.id}</h3>
+        </div>
+        <span class="arrow-indicator">▼</span>
+      `;
+      
+      const bodyContent = document.createElement('div');
+      bodyContent.className = 'matiere-chapters-body';
+      
+      m.chapitres.forEach(c => {
+        const row = document.createElement('div');
+        row.className = 'chapitre-item';
+        row.style.cssText = "padding:14px 12px; margin-top:10px; background:var(--bg-card); border-radius:12px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);";
+        row.onclick = (e) => ouvrirPreQuiz(m.id, c.id, e);
+        row.innerHTML = `
+          <span style="font-weight:600; font-size:.85rem; padding-right:12px; text-align:left; color:var(--text-primary); line-height:1.3;">${c.titre}</span>
+          <span style="font-size:.68rem; font-weight:700; color:var(--text-secondary); background:var(--bg-app); padding:4px 8px; border-radius:8px; white-space:nowrap; border:1px solid var(--border-color); text-transform:uppercase; letter-spacing:0.02em;">${c.theme || 'DNB'}</span>
+        `;
+        bodyContent.appendChild(row);
+      });
+
+      header.onclick = () => {
+        const estOuvert = bodyContent.classList.contains('is-open');
+        
+        // Effondrement global mécanique (Anti-pattern check)
+        document.querySelectorAll('.matiere-chapters-body').forEach(b => b.classList.remove('is-open'));
+        document.querySelectorAll('.arrow-indicator').forEach(a => a.classList.remove('rotated'));
+        document.querySelectorAll('.matiere-card-wrapper').forEach(w => w.classList.remove('is-expanded'));
+        
+        if (!estOuvert) {
+          bodyContent.classList.add('is-open');
+          card.classList.add('is-expanded');
+          header.querySelector('.arrow-indicator').classList.add('rotated');
+        }
+      };
+
+      card.appendChild(header);
+      card.appendChild(bodyContent);
+      container.appendChild(card);
+    });
+  }
 }
 
 let currentMatiereSelected = null;
