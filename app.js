@@ -1,5 +1,5 @@
 // ==========================================================================
-// RévisSeconde Studio Pro — app.js (Moteur Synchrone à Routage Popups)
+// RévisSeconde Studio Pro — app.js (Moteur Synchrone Corrigé avec Data Seconde)
 // ==========================================================================
 
 const AppState = {
@@ -13,19 +13,62 @@ const AppState = {
 
 const $ = id => document.getElementById(id);
 
+// Catalogue complet du programme de Seconde pour remplir ton menu principal
 const DATA_INITIALE = {
   matieres: [
     {
-      id: "maths",
+      id: "maths_2de",
       label: "Mathématiques",
       chapitres: [
         {
-          id: "m1",
-          titre: "Arithmétique & Nombres premiers",
-          theme: "Nombres et Calculs",
-          cours: "Un nombre premier n'a que deux diviseurs : 1 et lui-même. Tout nombre entier supérieur à 2 se décompose de manière unique en produit de facteurs premiers.",
-          piege: "Le nombre 1 n'est pas premier. Le nombre 2 est le seul nombre premier pair.",
-          conseil: "Le jour J, écris bien la liste des premiers nombres premiers au brouillon (2, 3, 5, 7, 11, 13...) pour aller vite !"
+          id: "intervalles",
+          titre: "Ensembles de nombres & Intervalles",
+          theme: "Algèbre",
+          cours: "En Seconde, on étudie les structures de nombres : ℕ, ℤ, 𝔻, ℚ et ℝ.\nUn intervalle [a ; b] rassemble l'ensemble des nombres réels x vérifiant la condition a ≤ x ≤ b.",
+          piege: "Vérifie toujours si le crochet est ouvert (valeur exclue) ou fermé (valeur incluse) !",
+          conseil: "Fais un dessin sur une ligne graduée à chaque fois pour ne pas t'emmêler les pinceaux."
+        }
+      ]
+    },
+    {
+      id: "francais_2de",
+      label: "Français",
+      chapitres: [
+        {
+          id: "comentaire",
+          titre: "La méthode du Commentaire de texte",
+          theme: "EAF",
+          cours: "Le commentaire de texte demande d'analyser l'expression (figures de style, temps verbaux) au service du sens. Il faut éviter le piège de la paraphrase.",
+          piege: "Ne jamais faire une liste de figures de style sans expliquer l'effet produit sur le lecteur.",
+          conseil: "Prépare ton plan détaillé au brouillon avec 2 ou 3 grands axes maximum."
+        }
+      ]
+    },
+    {
+      id: "hg_2de",
+      label: "Histoire-Géographie",
+      chapitres: [
+        {
+          id: "mediterranee",
+          titre: "L'empreinte antique et médiévale",
+          theme: "Histoire",
+          cours: "Étude des contacts culturels, politiques et religieux autour de la Méditerranée entre le Ve siècle av. J.-C. et le XIIIe siècle.",
+          piege: "Confondre le fonctionnement de la démocratie athénienne avec nos démocraties modernes.",
+          conseil: "Apprends par cœur les repères chronologiques majeurs."
+        }
+      ]
+    },
+    {
+      id: "spc_2de",
+      label: "Physique-Chimie",
+      chapitres: [
+        {
+          id: "mole",
+          titre: "La Mole : Unité de quantité de matière",
+          theme: "Chimie",
+          cours: "La mole est l'unité de quantité de matière (symbole : mol). Une mole contient exactement 6,022 x 10^23 entités chimiques (Nombre d'Avogadro). Formule : n = N / Na ou n = m / M.",
+          piege: "Se tromper dans les conversions d'unités (g en kg, ou mL en L) avant d'appliquer les formules.",
+          conseil: "Vérifie toujours la cohérence de tes unités avec une analyse dimensionnelle rapide."
         }
       ]
     }
@@ -33,12 +76,17 @@ const DATA_INITIALE = {
 };
 
 function initialiserApp() {
-  const local = localStorage.getItem('revis_studio_final_prod');
+  // On force la réinitialisation avec les données de Seconde si le menu est vide
+  const local = localStorage.getItem('revis_seconde_studio_v5');
   if (local) {
     AppState.data = JSON.parse(local);
+    // Sécurité au cas où l'ancien stockage était vide ou corrompu
+    if (!AppState.data.matieres || AppState.data.matieres.length === 0) {
+      AppState.data = DATA_INITIALE;
+    }
   } else {
     AppState.data = DATA_INITIALE;
-    localStorage.setItem('revis_studio_final_prod', JSON.stringify(DATA_INITIALE));
+    localStorage.setItem('revis_seconde_studio_v5', JSON.stringify(DATA_INITIALE));
   }
   construireMenuMatieres();
   configurerOcrEvents();
@@ -62,7 +110,7 @@ function construireMenuMatieres() {
         <div class="header-icon-box">📚</div>
         <h3 style="margin:0; font-size:1rem; font-weight:700; color:var(--text-primary);">${m.label}</h3>
       </div>
-      <svg class="arrow-indicator" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="arrow-indicator" viewBox="0 0 24 24" stroke-width="2.5" style="width:18px; height:18px; fill:none; stroke:currentColor;"><polyline points="6 9 12 15 18 9"/></svg>
     `;
     
     const bodyContent = document.createElement('div');
@@ -128,7 +176,7 @@ function ouvrirTableauDeBordChapitre(matiereId, chapitreId, event) {
   if (chap.conseil && chap.conseil.trim() !== "") {
     $('pre-quiz-conseil-text').textContent = chap.conseil;
   } else if (chap.piege && chap.piege.trim() !== "") {
-    $('pre-quiz-conseil-text').innerHTML = `🎯 <strong>Alerte Points le Jour J :</strong> Pour briller sur <em>"${chap.titre}"</em>, mémorise immédiatement la parade contre le piège classique : "${chap.piege}"`;
+    $('pre-quiz-conseil-text').innerHTML = `🎯 <strong>Alerte Points le Jour J :</strong> Mémorise immédiatement la parade contre le piège classique : "${chap.piege}"`;
   } else {
     $('pre-quiz-conseil-text').textContent = "Règle d'or : Utilise l'entraînement Flash ci-dessous pour tester ta capacité à restituer les mots-clés du cours sans aide.";
   }
@@ -163,7 +211,7 @@ function genererQuizFlash() {
   if (chap.exercice_ouvert && chap.exercice_ouvert.criteres) {
     baremeAttendu = chap.exercice_ouvert.criteres.map(crit => `• ${crit}`).join("\n");
   } else {
-    baremeAttendu = `• Restituer les définitions clés.\n• Éviter le piège : ${chap.piege || 'Aucun enregistré'}`;
+    baremeAttendu = `• Restituer les définitions et propriétés clés.\n• Éviter le piège : ${chap.piege || 'Aucun enregistré'}`;
   }
 
   $('text-quiz-question').textContent = `Sujet d'entraînement : Écris au brouillon tout ce que tu dois vérifier pour valider l'exercice sur "${chap.titre}".`;
@@ -223,7 +271,7 @@ function configurerOcrEvents() {
       switchIngestTab('tab-text');
     } catch (err) {
       $('ocr-status-container').style.display = 'none';
-      alert("Erreur OCR.");
+      alert("Erreur lors de la lecture de l'image.");
     }
   };
 
@@ -256,7 +304,7 @@ function configurerOcrEvents() {
       });
     }
 
-    localStorage.setItem('revis_studio_final_prod', JSON.stringify(AppState.data));
+    localStorage.setItem('revis_seconde_studio_v5', JSON.stringify(AppState.data));
     construireMenuMatieres();
     closeAddChapterModal();
     if(AppState.targetChapitreIdForEdit) {
