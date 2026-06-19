@@ -40,27 +40,41 @@
           <p id="pre-quiz-conseil-text" style="margin: 0; font-size: 0.85rem; color: #92400E; line-height: 1.4; font-weight: 500;"></p>
         </div>
         
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
-          <button id="btn-sub-summary" class="btn-primary" onclick="switchChapterSubView('view-summary')">📝 Résumé & Fondamentaux</button>
-          <button id="btn-sub-exercises" class="btn-success" onclick="switchChapterSubView('view-exercises')">🎯 Exercices de Révision</button>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+          <button class="btn-primary" onclick="ouvrirPopupSummary()">📝 Résumé & Fondamentaux</button>
+          <button class="btn-success" onclick="ouvrirPopupExercises()">🎯 Exercices de Révision</button>
           <button class="btn-secondary" onclick="preparerModificationChapitre()">✏️ Modifier / Enrichir le chapitre</button>
         </div>
+      </section>
 
-        <div id="sub-view-summary" class="chapter-sub-view">
-          <div class="card">
-            <h4 style="margin: 0 0 8px 0; font-size: 0.8rem; color: var(--color-primary); text-transform: uppercase;">Notes & Synthèse du cours</h4>
-            <p id="pre-quiz-cours-text" style="margin: 0; font-size: 0.9rem; line-height: 1.5; white-space: pre-line; color: var(--text-primary);"></p>
+    </main>
+
+    <div id="modal-view-summary" class="modal-backdrop" style="display: none;">
+      <div class="modal-window">
+        <div class="modal-header-title">📝 Résumé du cours</div>
+        <div class="modal-scroll-content">
+          <div class="card" style="margin-bottom: 12px; border-color: var(--color-primary);">
+            <h4 style="margin: 0 0 8px 0; font-size: 0.75rem; color: var(--color-primary); text-transform: uppercase;">Notes & Synthèse du cours</h4>
+            <p id="popup-cours-text" style="margin: 0; font-size: 0.88rem; line-height: 1.5; white-space: pre-line; color: var(--text-primary);"></p>
           </div>
-          <div id="wrapper-piege" class="card" style="background: #FFF5F5; border-color: #FED7D7;">
-            <h4 style="margin: 0 0 6px 0; font-size: 0.8rem; color: #C53030; text-transform: uppercase;">Piège classique</h4>
-            <p id="pre-quiz-piege-text" style="margin: 0; font-size: 0.85rem; color: #9B1C1C;"></p>
+          <div id="popup-wrapper-piege" class="card" style="background: #FFF5F5; border-color: #FED7D7; margin-bottom: 0;">
+            <h4 style="margin: 0 0 6px 0; font-size: 0.75rem; color: #C53030; text-transform: uppercase;">Piège classique</h4>
+            <p id="popup-piege-text" style="margin: 0; font-size: 0.85rem; color: #9B1C1C;"></p>
           </div>
         </div>
+        <div class="modal-footer-actions">
+          <button class="btn-secondary" onclick="fermerPopupSummary()">Fermer</button>
+        </div>
+      </div>
+    </div>
 
-        <div id="sub-view-exercises" class="chapter-sub-view" style="display:none;">
-          <div class="card" style="border-left: 4px solid var(--color-success);">
-            <h4 style="margin: 0 0 6px 0; font-size: 0.8rem; color: var(--color-success); text-transform: uppercase;">Auto-Évaluation Automatique</h4>
-            <p style="margin: 0 0 12px 0; font-size: 0.85rem; color: var(--text-secondary);">Entraîne-toi à restituer les fondamentaux de ce chapitre. Réponds de tête puis vérifie.</p>
+    <div id="modal-view-exercises" class="modal-backdrop" style="display: none;">
+      <div class="modal-window">
+        <div class="modal-header-title">🎯 Entraînement Flash</div>
+        <div class="modal-scroll-content">
+          <div class="card" style="border-left: 4px solid var(--color-success); margin-bottom: 0;">
+            <h4 style="margin: 0 0 6px 0; font-size: 0.75rem; color: var(--color-success); text-transform: uppercase;">Auto-Évaluation</h4>
+            <p style="margin: 0 0 12px 0; font-size: 0.85rem; color: var(--text-secondary);">Restitue les notions fondamentales de ce cours de tête, puis vérifie ta réponse.</p>
             <button class="btn-primary" style="background: var(--color-success); min-height: 38px; font-size: 0.82rem;" onclick="genererQuizFlash()">Générer une question Flash</button>
             
             <div id="box-quiz-flash" style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border-color); display: none;">
@@ -70,9 +84,11 @@
             </div>
           </div>
         </div>
-      </section>
-
-    </main>
+        <div class="modal-footer-actions">
+          <button class="btn-secondary" onclick="fermerPopupExercises()">Fermer</button>
+        </div>
+      </div>
+    </div>
 
     <div id="modal-add-chapter" class="modal-backdrop" style="display: none;">
       <div class="modal-window">
@@ -87,7 +103,7 @@
           <input type="text" id="input-new-chap-title" class="input-field" placeholder="Ex: Généralités sur les fonctions">
           
           <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px; text-transform: uppercase;">Conseil du jour associé</label>
-          <input type="text" id="input-new-chap-conseil" class="input-field" placeholder="Ex: Relis cette fiche 10 min avant de dormir.">
+          <input type="text" id="input-new-chap-conseil" class="input-field" placeholder="Ex: À relire avant de dormir.">
         </div>
 
         <div id="tab-text" class="tab-content" style="display: block;">
